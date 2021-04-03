@@ -11,7 +11,15 @@ import org.openqa.selenium.interactions.Actions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class RedBus {
-	
+
+	public static void NoOfBuses(ChromeDriver driver, String type) throws InterruptedException//why it asked me to change method to static
+	{
+	Thread.sleep(2000);
+	String Buses = driver.findElement(By.xpath("//span[@class='f-bold busFound']")).getText();
+	String count = Buses.replaceAll("[^0-9]","");
+	System.out.println(count + type);
+	}
+
 
 	public static void main(String[] args) throws InterruptedException {
 	
@@ -75,13 +83,6 @@ public class RedBus {
 		driver.close();
 	}
 
-	public static void NoOfBuses(ChromeDriver driver, String type) throws InterruptedException//why it asked me to change method to static
-	{
-	Thread.sleep(2000);
-	String Buses = driver.findElement(By.xpath("//span[@class='f-bold busFound']")).getText();
-	String count = Buses.replaceAll("[^0-9]","");
-	System.out.println(count + type);
-	}
 }
 
 
